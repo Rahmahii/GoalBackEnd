@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     username:{type:DataTypes.STRING , unique:true } ,
     password: DataTypes.STRING,
     description: DataTypes.STRING,
-    Longitude: DataTypes.STRING,
+    Latitude: DataTypes.STRING,
     longitude: DataTypes.STRING,
     cuntryId: { type: DataTypes.INTEGER,
     references: {
