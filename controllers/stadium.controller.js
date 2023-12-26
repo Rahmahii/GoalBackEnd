@@ -27,29 +27,29 @@ function FindInCity(req, res) {
   var stadiumList = []
 
   models.Stadium.findAll().then(result => {
-    console.log("lklk")
+    console.log("lklk"+lat1+lon1)
       if (result) {
           for (var i = 0; i < result.length; i++) {
               lat2 = result[i].latitude
               lon2 = result[i].longitude
               dist = distance(lat1, lon1, lat2, lon2)
-              if (dist <= 100 && dist >= - 100) {
+             if (dist <= 1000 && dist >= - 1000) {
                 stadiumList.push(result[i])
-              }
+             }
           }
           if (stadiumList != 0) {
-              res.status(200).json({
+            res.status(200).json({
                   message: "there is stadiums",
-                  stadiumList
-              })
-          } else {
-              res.status(200).json({
-                  message: "There are no stadiums nearby",
-                  stadiumList
+                  stadiumList,
+                  status:true
               })
           }
-      }
-
+         }else {
+            res.status(400).json({
+                  message: "There are no stadiums nearby",
+                 
+              })
+          }
   }).catch(error => {
       res.status(500).json({
           message: "something went wrong ",
