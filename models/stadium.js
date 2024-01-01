@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const Cuntry = require('./cuntry')
+const City = require('./city')
 module.exports = (sequelize, DataTypes) => {
   class Stadium extends Model {
     /**

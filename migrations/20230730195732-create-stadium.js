@@ -41,6 +41,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      minimumPrice:{
+        allowNull: true,
+        type: Sequelize.DOUBLE
+      },
       cuntryId: {
         allowNull: true,
         type: Sequelize.INTEGER,
