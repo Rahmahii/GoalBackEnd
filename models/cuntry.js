@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.Cuntry.hasMany(models.User)
+      models.Cuntry.hasMany(models.Stadium)
     }
   }
   Cuntry.init({

@@ -3,6 +3,7 @@ const tool = require('./tool')
 const opencage = require('opencage-api-client');
 const dotenv = require('dotenv');
 dotenv.config();
+
 function index(req, res){
   models.Stadium.findAll().then(async result => {
       console.log(result)
@@ -27,7 +28,6 @@ function FindInCity(req, res) {
   var stadiumList = []
 
   models.Stadium.findAll().then(result => {
-    console.log("lklk"+lat1+lon1)
       if (result) {
           for (var i = 0; i < result.length; i++) {
               lat2 = result[i].latitude

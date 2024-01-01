@@ -41,6 +41,16 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      cuntryId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: { model: 'Cuntries', key: 'id' }, onUpdate: 'CASCADE',
+      },
+      cityId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: { model: 'Cities', key: 'id' }, onUpdate: 'CASCADE',
+      },
       GoogleMapLink:{
         allowNull: true,
         type: Sequelize.TEXT

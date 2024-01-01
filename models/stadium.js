@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Stadium.hasMany(models.StadiumsAdmin)
       models.Stadium.hasMany(models.Game)
+      models.User.belongsTo(models.Cuntry)
+      models.User.belongsTo(models.City)
     }
   }
   Stadium.init({
@@ -27,7 +29,17 @@ module.exports = (sequelize, DataTypes) => {
     neighborhood:DataTypes.STRING,
     street:DataTypes.STRING,
     GoogleMapLink:DataTypes.STRING,
-    description: DataTypes.STRING
+    description: DataTypes.STRING,
+    cuntryId: { type: DataTypes.INTEGER,
+      references: {
+        model: Cuntry,
+        key: "cuntryId"
+      }},
+      cityId: { type: DataTypes.INTEGER,
+        references: {
+          model: City,
+          key: "cityId"
+        }},
   }, {
     sequelize,
     modelName: 'Stadium',
